@@ -2,6 +2,10 @@
 Data Loader Module
 Load và cache dữ liệu từ Google Cloud Storage
 """
+import os
+import certifi
+os.environ['REQUESTS_CA_BUNDLE'] = certifi.where()
+os.environ['SSL_CERT_FILE'] = certifi.where()
 
 import streamlit as st
 import pandas as pd
