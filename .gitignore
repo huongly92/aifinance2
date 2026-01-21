@@ -1,0 +1,16 @@
+# Credentials - KHÔNG đẩy lên GitHub  
+credentials.json
+.streamlit/secrets.toml
+.streamlit/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.venv/
+
+# OS
+.DS_Store
+Thumbs.db
