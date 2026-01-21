@@ -28,22 +28,6 @@ st.set_page_config(
 # with st.sidebar.expander("🔧 GCS Connection Status"):
 #     check_gcs_connection()
 
-# Load secrets và fix format private_key
-service_account_info = dict(st.secrets["gcp_service_account"])
-
-# Fix private_key nếu cần
-if "\\n" in service_account_info["private_key"]:
-    service_account_info["private_key"] = service_account_info["private_key"].replace("\\n", "\n")
-
-# Tạo credentials
-credentials = service_account.Credentials.from_service_account_info(
-    service_account_info
-)
-
-client = storage.Client(
-    credentials=credentials,
-    project=service_account_info["project_id"]
-)
 # ========== LOAD DATA FROM GCS ==========
 @st.cache_data(ttl=3600)
 def load_data():
